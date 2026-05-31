@@ -2,7 +2,6 @@ package dev.fitware.fitware.model;
 
 import jakarta.persistence.Entity;
 
-@Entity
 public class User {
 
     private String name;

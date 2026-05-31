@@ -5,7 +5,6 @@ import lombok.Getter;
 
 import java.util.List;
 
-@Entity
 public class Sheet {
 
     private String name;
