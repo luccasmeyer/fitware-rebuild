@@ -1,8 +1,11 @@
 package dev.fitware.fitware.controller;
 
+import dev.fitware.fitware.dto.ExerciseResponseDto;
+import dev.fitware.fitware.dto.UserResponseDto;
 import dev.fitware.fitware.model.Exercise;
 import dev.fitware.fitware.service.ExerciseService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +22,14 @@ public class ExerciseController {
     }
 
     @PostMapping
-    public Exercise registerExercise(@Valid @RequestBody Exercise exercise){
+    public ResponseEntity<ExerciseResponseDto> registerExercise(@Valid @RequestBody Exercise exercise){
 
-        return service.registerExercise(exercise);
+        Exercise exerciseBody = service.registerExercise(exercise);
+
+        ExerciseResponseDto response =
+                new ExerciseResponseDto("Exercício criado com sucesso", exerciseBody);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GetMapping
