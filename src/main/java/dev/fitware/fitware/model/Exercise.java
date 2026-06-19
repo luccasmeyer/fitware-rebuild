@@ -19,19 +19,11 @@ public class Exercise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotBlank(message = "O nome do exercício é obrigatório")
     private String name;
-
     @Column(name = "type_exercise")
-    @NotNull(message = "O tipo de exercício é obrigatório")
-    @Enumerated(EnumType.STRING)
     private TypeExercise typeExercise;
-
     private String description;
-
     @Column(name = "user_id")
-    @NotNull(message = "O ID do usuário é obrigatório")
     private Long userId;
 
 }

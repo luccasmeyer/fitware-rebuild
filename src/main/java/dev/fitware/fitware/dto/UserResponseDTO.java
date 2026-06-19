@@ -6,11 +6,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserResponseDto {
+public class UserResponseDTO {
     private String message;
     private String nameUser;
 
-    public UserResponseDto(String message, User user){
+    public UserResponseDTO(String message, User user){
         this.message = message;
         this.nameUser = user.getName();
     }

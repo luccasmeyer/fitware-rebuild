@@ -1,6 +1,6 @@
 package dev.fitware.fitware.controller;
 
-import dev.fitware.fitware.dto.UserResponseDto;
+import dev.fitware.fitware.dto.UserResponseDTO;
 import dev.fitware.fitware.model.User;
 import dev.fitware.fitware.service.UserService;
 import org.springframework.http.HttpStatus;
@@ -18,12 +18,12 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserResponseDto> registerUser(@RequestBody User user){
+    public ResponseEntity<UserResponseDTO> registerUser(@RequestBody User user){
 
         User userBody = service.registerUser(user);
 
-        UserResponseDto response =
-                new UserResponseDto("Usuario criado com sucesso", userBody);
+        UserResponseDTO response =
+                new UserResponseDTO("Usuario criado com sucesso", userBody);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
